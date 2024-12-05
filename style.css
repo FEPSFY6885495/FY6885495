@@ -20,6 +20,14 @@ head{font-family:'Calibri',sans-serif;}
     color: #000;
     
 }
+.table-of-contents a:link, .table-of-contents a:visited {
+    color: black;
+    text-decoration: none;
+}
+.table-of-contents a:active {
+    text-decoration: underline;
+}
+
 .table li :hover{color:blue}
 
 body { 
