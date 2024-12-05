@@ -36,5 +36,8 @@ body {
 }
 #title{text-align: center;}
 #URN{font-size: 14px;}
-
+.centred-logo{
+    display: block;
+    margin: 0;
+}
 
