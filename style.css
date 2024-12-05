@@ -20,7 +20,7 @@ head{font-family:'Calibri',sans-serif;}
     color: #000;
     
 }
-.table :hover{color:blue}
+.table li :hover{color:blue}
 
 body { 
 
