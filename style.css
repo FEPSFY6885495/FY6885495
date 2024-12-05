@@ -16,7 +16,12 @@ head{font-family:'Calibri',sans-serif;}
     margin-bottom: 10px;
 }
 .table {font-family: 'calibri', sans-serif;}
-.table li { text-decoration: underline};
+.table li { text-decoration: underline;
+    color: #000;
+    
+}
+.table :hover{color:blue}
+
 body { 
 
     background-color: #fff; margin-left: 50px;
