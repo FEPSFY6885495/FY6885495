@@ -17,3 +17,7 @@ head{font-family:'Calibri',sans-serif;}
 }
 .table {font-family: 'calibri', sans-serif;}
 .table li { text-decoration: underline};
+body { 
+
+    background-color: #fff; margin-left: 50px;
+}
