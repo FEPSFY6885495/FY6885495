@@ -1,5 +1,5 @@
 h2{color:black;}
-head{font-family:'Calibri','Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;}
+head{font-family:'Calibri',sans-serif;}
 .table {
     width: 600px;
     padding: 10px;
@@ -15,3 +15,4 @@ head{font-family:'Calibri','Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-ser
     color:#333;
     margin-bottom: 10px;
 }
+.table {font-family: 'calibri', sans-serif;}
