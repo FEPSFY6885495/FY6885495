@@ -8,3 +8,4 @@ head{font-family:'Calibri','Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-ser
 .table li:nth-child(even){
     background-color: rgb(187, 186, 186);
 }
+.table { list-style: none;}
