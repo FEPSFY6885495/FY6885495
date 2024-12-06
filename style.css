@@ -40,12 +40,17 @@ body {
     display: block;
     margin: 0;
 }
+
+
 .video-container {
-    align-content: center; 
-    margin-top: 20px; 
+    display: block; 
+    margin: 0 auto;
+    width: max-content;
   }
   
   video {
-    display: inline-block; 
+    display: block; 
   }
+  
+
   
