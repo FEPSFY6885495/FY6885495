@@ -36,7 +36,7 @@
 
 </p>
 </section>
-<section id="The Cosmic Paradox">
+<section id="TheCosmicParadox">
 <h1 id="the-cosmic-paradox"> The Cosmic Paradox </h1>
 <p class="ex2">
 
@@ -45,7 +45,7 @@ Quasars on the other hand, are the very essence of light and dark, the very pinn
 
 </p>
 </section>
-<section id="Discovery And Birth Of Black Holes And Einsteins Theory Of General Relativity">
+<section id="DiscoveryAndBirthOfBlackHolesAndEinsteinsTheoryOfGeneralRelativity">
 <h1 id="Discovery-and-birth-of-black-holes"> Discovery And Birth Of Black Holes And Einsteins Theory Of General Relativity </h1>
 <p id="ex3">
 
@@ -55,7 +55,7 @@ The theory of general relativity is that spacetime was thought to be like a shee
 
 </p>
 </section>
-<section id="Beyond The Event Horizon">
+<section id="BeyondTheEventHorizon">
 <h1 id="Beyond-The-Event-Horizon"> Beyond The Event Horizon </h1>
 
 <p class="ex4">
@@ -63,7 +63,7 @@ The theory of general relativity is that spacetime was thought to be like a shee
 
 </p>
 </section>
-<section id="Ancient Gateways Into The Past">
+<section id="AncientGatewaysIntoThePast">
 <h1 id="Ancient-Gateways-Into-The-Past"> Ancient Gateways Into The Past </h1>
 <p id="ex5">
   Quasars were first discovered in the 1950s and were presumed to be stars. However, their spectra were nothing like of stars and sometimes even shot out jets of material. Later it was revealed that these so called “stars” were not really stars and were found to be the extraordinarily bright cores of distant galaxies that were enormously red shifted. This huge red shift suggested that these galaxies were over distances of billion of light years away (CGP Books, 2018, p. 454). Quasars are powered by gas and matter which spiral into a supermassive black hole at unimaginable velocity, forming an accretion disk which emits matter and radiation in the form of jets.
@@ -151,7 +151,33 @@ window.onload = getLastUpdatedTime;
 
 </script>
 
+<p id="totalWordCount"></p>
 
+<hr>
+
+<script>
+
+function displayWordCount (sectionId, outputId) {
+  const text = document.getElementById(sectionId).textContent;
+  const wordArray = text.trim().split(/\s+/);
+  const wordCount = wordArray.length;
+  return wordCount;
+}
+
+
+function displayTotalWordCount() {
+  const AbstractCount = displayWordCount("Abstract_InText");
+  const TheCosmicParadoxCount = displayWordCount("TheCosmicParadox_InText");
+  const DiscoveryAndBirthOfBlackHolesAndEinsteinsTheoryOfGeneralRelativityCount = displayWordCount("DiscoveryAndBirthOfBlackHolesAndEinsteinsTheoryOfGeneralRelativity_InText");
+  const BeyondTheEventHorizonCount = displayWordCount("BeyondTheEventHorizon_InText");
+  const AncientGatewaysIntoThePastCount = displayWordCount("AncientGatewaysIntoThePast_InText");
+  const ConclusionCount = displayWordCount("Conclusion_InText");
+  const totalWordCount = AbstractCount + TheCosmicParadoxCount + DiscoveryAndBirthOfBlackHolesAndEinsteinsTheoryOfGeneralRelativityCount + BeyondTheEventHorizonCount + AncientGatewaysIntoThePastCount + ConclusionCount;
+  document.getElementById("totalWordCount").innerText = 'Total word count: ${totalWordCount}';
+
+}
+window.onload = displayTotalWordCount;
+</script>
 
 </body>
 
