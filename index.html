@@ -78,22 +78,26 @@
           }
         
           function displayTotalWordCount() {
-            const AbstractCount = displayWordCount("Abstract_InText");
-            const TheCosmicParadoxCount = displayWordCount("TheCosmicParadox_InText");
-            const DiscoveryAndBirthOfBlackHolesAndEinsteinsTheoryOfGeneralRelativityCount = displayWordCount("DiscoveryAndBirthOfBlackHolesAndEinsteinsTheoryOfGeneralRelativity_InText");
-            const BeyondTheEventHorizonCount = displayWordCount("BeyondTheEventHorizon_InText");
-            const AncientGatewaysIntoThePastCount = displayWordCount("AncientGatewaysIntoThePast_InText");
-            const ConclusionCount = displayWordCount("Conclusion_InText");
-        
-            const totalWordCount = AbstractCount + TheCosmicParadoxCount + DiscoveryAndBirthOfBlackHolesAndEinsteinsTheoryOfGeneralRelativityCount + BeyondTheEventHorizonCount + AncientGatewaysIntoThePastCount + ConclusionCount;
-        
-            document.getElementById("totalWordCount").innerText = `Total word count: ${totalWordCount}`;
-          }
-        
-          window.onload = () => {
-            getLastUpdatedTime();
-            displayTotalWordCount();
-          };
+  const AbstractCount = displayWordCount("Abstract_InText");
+  const TheCosmicParadoxCount = displayWordCount("TheCosmicParadox_InText");
+  const DiscoveryAndBirthOfBlackHolesAndEinsteinsTheoryOfGeneralRelativityCount = displayWordCount("DiscoveryAndBirthOfBlackHolesAndEinsteinsTheoryOfGeneralRelativity_InText");
+  const BeyondTheEventHorizonCount = displayWordCount("BeyondTheEventHorizon_InText");
+  const AncientGatewaysIntoThePastCount = displayWordCount("AncientGatewaysIntoThePast_InText");
+  const ConclusionCount = displayWordCount("Conclusion_InText");
+
+  // Sum all counts
+  const totalWordCount = AbstractCount + TheCosmicParadoxCount + DiscoveryAndBirthOfBlackHolesAndEinsteinsTheoryOfGeneralRelativityCount +
+    BeyondTheEventHorizonCount + AncientGatewaysIntoThePastCount + ConclusionCount;
+
+  console.log(`Total Word Count: ${totalWordCount}`);
+  document.getElementById("totalWordCount").innerText = `Total word count: ${totalWordCount}`;
+}
+
+window.onload = () => {
+  getLastUpdatedTime();
+  displayTotalWordCount();
+};
+
         </script>
         
 
