@@ -22,15 +22,15 @@
 
         <video src="hopefully the lowest.mp4" width="800" height="450" controls></video>
 
-
-        <!--  Adding Last Update -->
+        <!-- Adding Last Update -->
         <div id="last-update">Loading last update time...</div>
         <button onclick="verifyLastUpdatedTime()" style="display: block; margin: 10px auto; padding: 8px 16px;">Verify Last Modified Time</button>
         <script>
           async function getLastUpdatedTime() {
             const username = 'FEPSFY6885495';
             const repo = 'FY6885495';
-            const url = 'https://api.github.com/repos/${username}/${repo}/commits';
+            const url = `https://api.github.com/repos/${username}/${repo}/commits`;
+        
             try {
               const response = await fetch(url, {
                 method: 'GET',
@@ -38,41 +38,30 @@
                   'Accept': 'application/vnd.github.v3+json',
                 }
               });
+        
               if (!response.ok) {
-                throw new Error('Error fetching data: ${response.status}- ${response.statusText}');
-        
+                throw new Error(`Error fetching data: ${response.status} - ${response.statusText}`);
               }
-        const commits = await response.json();
-        if (commits && commits.length > 0) {
-          const lastCommitDate = new Date(commits[0].commit.committer.date);
         
+              const commits = await response.json();
+              if (commits && commits.length > 0) {
+                const lastCommitDate = new Date(commits[0].commit.committer.date);
+                document.getElementById('last-update').innerText = `Last Modified Time: ${lastCommitDate.toLocaleString()}`;
+              } else {
+                document.getElementById('last-update').innerText = 'No commits found in the repository.';
+              }
         
-          document.getElementById('last-updated').innerText = 'Last Modified Time: ${lastCommitDate.toLocaleString()}';
-        
-        } else {
-          document.getElementById('last-updated').innerText = 'No commits found in the repository.';
-        
-        }
-        
-            }catch (error) {console.error('Error fetching the last updated time:', error);
-              document.getElementById('last-updated').innerText = 'Error fetching update time. Please check the repository details.';
-        
+            } catch (error) {
+              console.error('Error fetching the last updated time:', error);
+              document.getElementById('last-update').innerText = 'Error fetching update time. Please check the repository details.';
             }
-        
           }
         
-        async function verifyLastUpdatedTime() {
-          document.getElementById('last-updated').innerText = 'verifying...';
-          await getLastUpdatedTime();
-          alert("Last modified time has been successfully verified from Github API.");
-        
-          
-        }
-        
-        window.onload = getLastUpdatedTime;
-        
-          
-        
+          async function verifyLastUpdatedTime() {
+            document.getElementById('last-update').innerText = 'Verifying...';
+            await getLastUpdatedTime();
+            alert("Last modified time has been successfully verified from GitHub API.");
+          }
         </script>
         
         <p id="totalWordCount"></p>
@@ -80,28 +69,33 @@
         <hr>
         
         <script>
+          function displayWordCount(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (!section) return 0; // Return 0 if the section is missing
+            const text = section.textContent || '';
+            const wordArray = text.trim().split(/\s+/);
+            return wordArray.length;
+          }
         
-        function displayWordCount (sectionId, outputId) {
-          const text = document.getElementById(sectionId).textContent;
-          const wordArray = text.trim().split(/\s+/);
-          const wordCount = wordArray.length;
-          return wordCount;
-        }
+          function displayTotalWordCount() {
+            const AbstractCount = displayWordCount("Abstract_InText");
+            const TheCosmicParadoxCount = displayWordCount("TheCosmicParadox_InText");
+            const DiscoveryAndBirthOfBlackHolesAndEinsteinsTheoryOfGeneralRelativityCount = displayWordCount("DiscoveryAndBirthOfBlackHolesAndEinsteinsTheoryOfGeneralRelativity_InText");
+            const BeyondTheEventHorizonCount = displayWordCount("BeyondTheEventHorizon_InText");
+            const AncientGatewaysIntoThePastCount = displayWordCount("AncientGatewaysIntoThePast_InText");
+            const ConclusionCount = displayWordCount("Conclusion_InText");
         
+            const totalWordCount = AbstractCount + TheCosmicParadoxCount + DiscoveryAndBirthOfBlackHolesAndEinsteinsTheoryOfGeneralRelativityCount + BeyondTheEventHorizonCount + AncientGatewaysIntoThePastCount + ConclusionCount;
         
-        function displayTotalWordCount() {
-          const AbstractCount = displayWordCount("Abstract_InText");
-          const TheCosmicParadoxCount = displayWordCount("TheCosmicParadox_InText");
-          const DiscoveryAndBirthOfBlackHolesAndEinsteinsTheoryOfGeneralRelativityCount = displayWordCount("DiscoveryAndBirthOfBlackHolesAndEinsteinsTheoryOfGeneralRelativity_InText");
-          const BeyondTheEventHorizonCount = displayWordCount("BeyondTheEventHorizon_InText");
-          const AncientGatewaysIntoThePastCount = displayWordCount("AncientGatewaysIntoThePast_InText");
-          const ConclusionCount = displayWordCount("Conclusion_InText");
-          const totalWordCount = AbstractCount + TheCosmicParadoxCount + DiscoveryAndBirthOfBlackHolesAndEinsteinsTheoryOfGeneralRelativityCount + BeyondTheEventHorizonCount + AncientGatewaysIntoThePastCount + ConclusionCount;
-          document.getElementById("totalWordCount").innerText = 'Total word count: ${totalWordCount}';
+            document.getElementById("totalWordCount").innerText = `Total word count: ${totalWordCount}`;
+          }
         
-        }
-        window.onload = displayTotalWordCount;
+          window.onload = () => {
+            getLastUpdatedTime();
+            displayTotalWordCount();
+          };
         </script>
+        
 
 
 
